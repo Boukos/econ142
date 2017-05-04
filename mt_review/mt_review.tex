@@ -1,0 +1,315 @@
+\documentclass{article}
+\usepackage{enumerate}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage[parfill]{parskip}
+
+\title{Econ C142 Midterm Review}
+\author{Sahil Chinoy}
+\date{March 22, 2017}
+
+\begin{document}
+\maketitle{}
+
+\subsection*{Review Sheet 1}
+
+\begin{enumerate}
+
+	\item 
+
+	\begin{enumerate}
+
+		\item The agent maximizes $\alpha_0 + \beta_0 s - (\delta_0^*W + V^*)s - \frac{\kappa}{2}s^2 + U$ with respect to the level of schooling $s$, so taking the first-order condition
+
+		\begin{align*}
+		\beta_0 - \delta_0^*W - V^* - \kappa s = 0 \\
+		s = \frac{\beta_0}{\kappa} - \frac{\delta_0^*}{\kappa}W - \frac{V^*}{\kappa} \\
+		s = \gamma_0 + \delta_0 W + V
+		\end{align*}
+
+		with $\gamma_0 = \frac{\beta_0}{\kappa}$, $\delta_0 = -\frac{\delta_0^*}{\kappa}$ and $V = - \frac{V^*}{\kappa}$.
+
+		\item We expect $\delta_0$ to be negative. The greater the commute time to the closest four year college, the less likely an individual is to be exposed to graduates and employees of the college, which might make the option to pursue higher education seem more foreign. Thus, we expect greater $W$ to be associated with a lower schooling level $S$.
+
+		\item The assumption that $\mathbb{E}[U|W,V] = \lambda V$ means that non-school determinants of earnings are correlated with unobserved heterogeneity in the cost of schooling. That is, there is a latent attribute that affects schooling cost \textit{and} simultaneously affects earning ability. We expect individuals with a high cost of schooling (due to individual attributes) to also have low earning potential, which means we expect $\lambda > 0$.
+
+		This assumption makes sense if we assume a quality like instrinsic motivation makes schooling more costly (in a net utility sense) and decreases an individual's earning potential. It does not hold if, say, being uninterested in academic pursuits isn't associated with lower earning potential in the ``real world.''
+
+		\item 
+
+		\begin{align*}
+		\mathbb{E}^*[\log Y(S) |S,V] = \mathbb{E}^*[\alpha_0 + \beta_0 S + U |S,V] = \alpha_0 + \beta_0 S +  \mathbb{E}^*[U|V] =  \alpha_0 + \beta_0 S +  \lambda V
+		\end{align*}
+
+		\item 
+
+		Conditional on $V=v$, the variation in $S$ is determined entirely by $W$, which is orthogonal to $U$. Then the error term in the regression $\log Y(S) = \alpha_0 + \beta_0 S+ U$ is independent of $S$, which means that the coefficient on schooling in the regression $\mathbb{E} [\log Y|S,V] = \alpha_0 + \beta_0 S+ \lambda V$ is $\beta_0$.
+
+		\item 
+
+		We need to compute an estimate of $V$ to use for our least-squares fit of $\log Y$ on $S$ and $V$. We could do this by using the residuals from the regression of $S$ on $W$ and a constant. Then compute the fit of $\log Y$ on the residuals $\hat{V}$, a constant and $S$. The coefficient on $S$ is a consistent estimate of $\beta_0$.
+
+		\item
+
+		If $\lambda \approx 0$, then the short regression is the same as the long regression and $b_0 \approx \beta_0$.
+
+	\end{enumerate}
+
+	\item
+
+	\begin{enumerate}
+
+		\item
+
+		Among children whose father graduated college, half complete college, since $\mathbb{E}[C_t | C_{t-1} = 1] = 0.5$.
+
+		Among children of non-graduates, one-fourth complete college, since $\mathbb{E}[C_t | C_{t-1} = 0] = 0.25$.
+
+		\item
+
+		$a = \mathbb{E}^*[C_t|C_{t-1} = 0] = 0.25$, and $b = \mathbb{E}^*[C_t|C_{t-1} = 1] - a = 0.25$.
+
+		\item 
+
+		Average earnings of college graduates: $\mathbb{E}[Y_t | C_t = 1] = \frac{0.20 \times \$60,000 + 0.10 \times \$30,000}{0.20 + 0.10} = \$50,000$
+
+		Average earnings of non-college graduates: $\mathbb{E}[Y_t | C_t = 0] = \frac{0.60 \times \$8,000 + 0.10 \times \$14,000}{0.60 + 0.10} = \$8,857$
+
+		Overall average earnings: $\mathbb{E}[Y_t] = 0.60 \times \$8,000 + 0.10 \times \$14,000 + 0.20 \times \$60,000 + 0.10 \times \$30,000 = \$21,200$
+
+		\item
+
+		$\beta$ adjusts for covariate differences by comparing only the earnings of subpopulations of individuals whose fathers had the same education level. That is, we restrict our sample to those whose fathers completed college and compute the difference in average earnings between college and non-college graduates; then we restrict our sample to those whose fathers did not complete college and compute the difference in average earnings between college and non-college graduates; then we take the weighted average of those two averages.
+
+		$$\beta = (\$60,000 - \$8,000) \times \frac{2}{3} + (\$30,000 - \$14,000) \times \frac{1}{3} = \$40,000$$
+
+		This is somewhat less than the simple difference in average earnings of college and non-college graduates, $\$50,000 - \$8,857 = \$41,143$. This is as expected, because this number also takes into account the difference does not account for the fact that those who went to college are more likely to have fathers who went to college and thus would have earned more even without attending college.
+
+		\item
+
+		Overall average earnings in the new economy: $\mathbb{E}[Y_t] = 0.40 \times \$4,000 + 0.05 \times \$14,000 + 0.4 \times \$60,000 + 0.15 \times \$30,000 = \$30,800$
+
+		So the expected increase in annual tax revenue is $\$30,800 - \$21,200 = \$9,600$. Assuming a discount rate of 0.05, this implies that the present value of the increase in tax revenue is $\$9,600 \times \sum \limits_{i=0}^\infty (1-0.05)^i  = \frac{\$9,600}{0.05} = \$192,000$.
+
+	\end{enumerate}
+
+	\item
+
+	\begin{enumerate}
+
+		\item
+
+		$\alpha_0$ is the earnings of an individual if they are male, and $\beta_0$ is the \textit{difference} in earnings an individual can expect if they are female from if they were male. If $\beta_0 = 0$, then the distributions of male and female earnings are the same.
+
+		\item
+
+		The median of $U(\alpha_0, \beta_0|X)$ is $Q_{U|X}(1/2|X) = 0$.
+
+		\item
+
+		$(R_j(a,b) + R_{j+1}(a,b))/2$ is an estimator of the median of $U(a,b)$ in the $X_i=1$ subsample. Under the assumption that $a = \alpha_0$ and $b = \beta_0$, this is 0.
+
+		\item
+
+		Under the assumption that $a = \alpha_0$ and $b = \beta_0$, $P(R_1(a,b) \leq 0 \leq R_3(a,b)) = 1 - P(R_1(a,b) > 0) - P(R_3(a,b) < 0) = P(R_1(a,b) < 0) - P(R_3(a,b) < 0) = \sum \limits_{i=1}^3 \binom{3}{i} (0.5)^{3-i}(0.5)^i -  (0.5)^3 = 2 \times 3(0.5)^3 = 0.75$.
+
+		\item
+
+		$\hat{u}_{1/2}^1(a,b)$ is precisely $(R_j(a,b) + R_{j+1}(a,b))/2$ with $j$ as defined in (c), that is, $j/(N_1 + 1) < 1/2 < (j+1)/(N_1+1)$. In other words, to estimate the median of $U(a,b)$ with $X=0$, sort the $U(a,b)$ of the subsample with $X=1$ and take the average of the two middle values. Similarly, $\hat{u}_{1/2}^0(a,b) = (S_h(a,b) + S_{h+1}(a,b))/2$ with $h/(N_2 + 1) < 1/2 < (h+1)/(N_2+1)$.
+
+		\item
+
+		An approximate 95\% confidence interval for $u_{1/2}^1(a,b)$ is given by $[R_{k_1}(a,b), R_{j_1}(a,b)]$, with $k_1 = \lfloor 0.5N_1 - l\rfloor$, $j_1 = \lceil 0.5N_1 + l\rceil$, and $l_1 = 1.96 \times 0.5\sqrt{N_1}$. Similarly, an approximate 95\% confidence interval for $u_{1/2}^0(a,b)$ is given by $[S_{k_0}(a,b), S_{j_0}(a,b)]$, with $k_0 = \lfloor 0.5N_0 - l_0\rfloor$, $j_0 = \lceil 0.5N_0 + l_0\rceil$, and $l_0 = 1.96 \times 0.5\sqrt{N_0}$. 
+
+		\item 
+
+		The length of the intervals in (f) correspond to estimates of the sampling variances; specifically, $\hat{\sigma}^2_1 = N_1(R_{j_1}(a,b) - R_{k_1}(a,b))^2/4(1.96)^2$ and $\hat{\sigma}^2_0 = N_0(S_{j_0}(a,b) - S_{k_0}(a,b))^2/4(1.96)^2$ with $j_1,k_1,j_0,k_0$ as defined above.
+
+		\item
+
+		Under this null hypothesis, $u_{1/2}^1(a,b) = u_{1/2}^0(a,b) = 0$. So, using our estimates of $\hat{u}_{1/2}^1(a,b)$ and its variance $\hat{\sigma}^2_1$, we could conduct a $t$-test to determine if $u_{1/2}^1(a,b)$ is significantly different from zero.
+
+	\end{enumerate}
+
+	\item
+
+	\begin{enumerate}
+
+		\item
+
+		Taking first-order conditions
+
+		\begin{align*}
+		\alpha_0 PA L^{\alpha_0 - 1} D^{1-\alpha_0} - W = 0 \\
+		L^{\alpha_0-1}= \frac{W}{\alpha_0 PA D^{1-\alpha_0}} \\
+		L= \left( \alpha_0 \frac{P}{W} A \right)^{\frac{1}{1-\alpha_0}}D
+		\end{align*}.
+
+		\item
+
+		Dividing by $D$ and taking the log of both sides
+
+		$$\ln \left( \frac{L}{D} \right) = \frac{\ln(\alpha_0)}{1-\alpha_0} + \frac{1}{1-\alpha_0} \ln \left(\frac{P}{W} \right) + \frac{\ln A}{1-\alpha_0}.$$
+
+		Adding and subtracting $\frac{1}{1-\alpha_0} \mathbb{E}[\ln A]$ gives us the desired expression.
+
+		\item
+
+		This restriction amounts to the statement that the productivity of a plantation does not depend on the ratio of prices to wages there. This is plausible if prices and wages are set on some kind of worldwide or nationwide market, in which case geographic variations in productivity wouldn't be related to prices or wages.
+
+		\item 
+
+		$$\mathbb{E}^*[\ln (Y/D) | \ln(L/D)] = c_0 + \alpha_0 \ln(L/D) + \mathbb{E}^*[U | \ln(L/D)].$$
+
+		But $U = \ln A - \mathbb{E}[\ln A]$, and
+
+		$$\mathbb{E}^*[\ln A | \ln(L/D)] = d + \frac{\mathbb{C}(\ln A, \ln(L/D))}{\mathbb{V}(\ln(L/D))} \ln(L/D)$$
+
+		where
+
+		$$\mathbb{C}(\ln A, \ln(L/D)) = \frac{\mathbb{V}(\ln A)}{1-\alpha_0}$$
+
+		and
+
+		$$\mathbb{V}(\ln (L/D)) = \left( \frac{1}{1-\alpha_0} \right)^2 ( \mathbb{V}(\ln(P/W)) + \mathbb{V}(\ln A)).$$
+
+		So the coefficient on $\ln (L/D)$ is
+
+		$$\alpha_0 + (1 - \alpha_0) \frac{\mathbb{V}(\ln A)}{\mathbb{V}(\ln(P/W)) + \mathbb{V}(\ln A) }.$$
+
+		Intuitively, this means that if we compute the least-squares fit of output on the labor-land ratio in order to extract the marginal productivity of labor, our estimate will be biased due to the fact that the unobserved plantation productivity not only influences the error term $U$, but also influences the labor-land ratio. Thus there is both a \textit{direct} and an \textit{indirect} effect of productivity on output.
+
+		\item
+
+		$$\mathbb{E}^*[\ln (Y/D) | \ln(L/D), V] = c_0 + \alpha_0 \ln(L/D) + \mathbb{E}^*[U | \ln(L/D), V],$$
+
+		but $U = (1-\alpha_0)V$, so
+
+		$$\mathbb{E}^*[\ln (Y/D) | \ln(L/D), V] = c_0 + \alpha_0 \ln(L/D) + (1-\alpha_0) V.$$
+
+		Now if we try to estimate the least-squares fit on the labor-land ratio while controlling for the firm productivity through $V$, we will extract an unbiased estimate of the marginal productivity of labor.
+
+		\item
+
+		Under these assumptions, $\mathbb{V}(\ln(P/W)) = 0$, so the coefficient on $\ln(L/D)$ is 1. If there is no variation in the prices and wages across plantations, then the optimal labor allocation is driven entirely by the heterogeneity in plantation productivity. This means that when we try to compute the fit of output on the labor-land ratio, we will pick up the direct effect of productivity in the error term and the indirect effect in the labor-land ratio, but because the labor-land ratio is \textit{entirely} determined by productivity, these two effects sum to 1.
+
+	\end{enumerate}
+
+	\item
+
+	\begin{enumerate}
+
+		\item
+
+		$\alpha_2$ is the price elasticity of demand, which we expect to be negative. $\beta_2$ is the price elasticity of supply, which we expect to be positive.
+
+		\item
+
+		Setting $\ln Q_i^D(P_i) = \ln Q_i^S(P_i)$, we find
+
+		$$\ln P_i = \frac{\alpha_1 - \beta_1 + U_i^D - U_i^S}{\beta_2 - \alpha_2} $$
+
+		and
+
+		$$\ln Q_i = \frac{\alpha_1 \beta_2 - \alpha_2 \beta_1 + \beta_2 U^D_i - \alpha_2 U^S_i}{\beta_2 - \alpha_2}.$$
+
+		Taking into account the expected signs from (a), we see that a positive supply shock $U_i^S > 0$ increases the equilibrium quantity but decreases the equilibrium price, while a positive demand shock $U_i^D > 0$ increases the equilibrium price and quantity.
+
+		\item
+
+		$$\mathbb{E}^*[\ln Q | \ln P] = a + \left( \frac{\beta_2}{\beta_2 - \alpha_2} \frac{\mathbb{C}(U_i^D, \ln P)}{\mathbb{V}(\ln P)} - \frac{\alpha_2}{\beta_2 - \alpha_2} \frac{\mathbb{C}(U_i^S, \ln P)}{\mathbb{V}(\ln P)} \right) \ln P$$
+
+		for constant $a$. But $\mathbb{C}(U_i^D, \ln P) = \mathbb{V}(U_i^D)/(\beta_2 - \alpha_2)$ and $\mathbb{C}(U_i^S, \ln P) = -\mathbb{V}(U_i^S)/(\beta_2 - \alpha_2)$ and $\mathbb{V} (\ln P) = (\mathbb{V}(U_i^D) + \mathbb{V}(U_i^S))/(\beta_2 - \alpha_2)^2$, so
+
+		$$\mathbb{E}^*[\ln Q | \ln P] = a + \left( \frac{\beta_2 \mathbb{V}(U_i^D) + \alpha_2 \mathbb{V}(U_i^S)}{\mathbb{V}(U_i^D) + \mathbb{V}(U_i^S)} \right) \ln P$$
+
+		So the coefficient on $\ln P$, in general, a somewhat unpleasant combination of $\alpha_2$ and $\beta_2$. However, consider the case where $\mathbb{V}(U_i^S) / (\mathbb{V}(U_i^D) + \mathbb{V}(U_i^S)) \approx 1$. Then $\mathbb{V}(U_i^D) / (\mathbb{V}(U_i^D) + \mathbb{V}(U_i^S)) \approx 0$, and the coefficient is about $\alpha_2$. This corresponds to the case where we have large supply shocks but small demand shocks. Then, since we're moving the supply around but not the demand, all the effects on equilibrium quantity are due to the elasticity of demand. So we can accurately recover $\alpha_2$.
+
+	\end{enumerate}
+
+\end{enumerate}
+
+\subsection*{Review Sheet 2}
+
+\begin{enumerate}
+
+	\item
+
+	\begin{enumerate}
+
+		\item
+
+		$$\mathbb{E}^*[\mathbb{E}^*[Y|W]|X] = \mathbb{E}^*[\mathbb{E}[Y] - \beta \mathbb{E}[W] + \beta W | X] = \mathbb{E}[Y] - \beta \mathbb{E}[W] + \beta (E[W] - \eta E[X] + \eta X)$$
+
+		But $\eta = \mathbb{C}(W,X)/\mathbb{V}(X) = 0$, so $\mathbb{E}^*[\mathbb{E}^*[Y|W]|X]  = E[Y]$. The same proof applies for  $\mathbb{E}^*[\mathbb{E}^*[Y|X]|W]$.
+
+		\item
+
+		By the projection theorem, $\mathbb{E}^*[Y|W,X]$ is the unique vector such that for $U = Y - \mathbb{E}^*[Y|W,X]$, $\langle U,X \rangle = \langle U,W \rangle = 0$.
+
+		Let $U = Y - \mathbb{E}^*[Y|X] - \mathbb{E}^*[Y|W] + \mathbb{E}[Y]$. From (a), $\mathbb{E}[Y] = \mathbb{E}^*[\mathbb{E}^*[Y|X]|W]$. Also
+
+		$$\langle \mathbb{E}^*[Y|X] - \mathbb{E}^*[\mathbb{E}^*[Y|X]|W], W \rangle = 0$$
+
+		by the projection theorem. So
+
+		\begin{gather*}
+		\langle U, W \rangle = \langle Y - \mathbb{E}^*[Y|W], W \rangle = \mathbb{E}[YW] - \mathbb{E}[(\mathbb{E}[Y] - \beta \mathbb{E}[W] + \beta W)W] \\
+		\langle U, W \rangle = \mathbb{E}[YW] - \mathbb{E}[Y]\mathbb{E}[W] - \beta(\mathbb{E}[W^2] - \mathbb{E}[W]\mathbb{E}[W]) \\
+		\langle U, W \rangle = \mathbb{C}(Y,W) - \frac{\mathbb{C}(Y,W)}{\mathbb{V}(W)}\mathbb{V}(W) \\
+		\langle U, W \rangle = 0
+		\end{gather*}
+
+		The proof is symmetric for $X$. So 
+
+		$$\mathbb{E}^*[Y|W,X] = \mathbb{E}^*[Y|W] + \mathbb{E}^*[Y|X] - \mathbb{E}[Y].$$
+
+		\item
+
+		$\mathbb{E}^*[Y|W] = \mathbb{E}[Y] + \frac{\mathbb{C}(Y,W)}{\mathbb{V}(W)}(W - \mathbb{E}[W])$ and $\mathbb{E}^*[Y|X] = \mathbb{E}[Y] + \frac{\mathbb{C}(Y,X)}{\mathbb{V}(X}(X - \mathbb{E}[X])$, so given the result of (b)
+
+		$$\mathbb{E}^*[Y|W,X] = \mathbb{E}[Y] + \frac{\mathbb{C}(Y,X)}{\mathbb{V}(X}(X - \mathbb{E}[X]) + \frac{\mathbb{C}(Y,W)}{\mathbb{V}(W)}(W - \mathbb{E}[W])$$
+
+		\item
+
+		Let $W$ be an indicator for if a student was given a snack voucher, and let $X$ be an indicator for if a student was given advising. Given the result of (b), we can separately compute the best linear predictor for each of the groups independently (the students given snack vouchers and the students given advising), add them together and subtract the mean GPA in order to form the best linear predictor of GPA given a dummy for voucher receipt ($W$), a dummy for advising ($X$), and a constant.
+
+		\item
+
+		The linear regression computed in (d) is useful only in the case that snack vouchers and advising don't interact in the production of GPA. If the two are complements (substitutes) in production, then we expect $\mathbb{C}(X,W)$ to be positive (negative) and our analysis in parts (a) to (d) do not hold; that is, we need to include an interaction term $XW$ in our model to obtain unbiased results.
+
+		\item
+
+		The Vice Chancellor should randomly divide first-year students into \textit{four} groups, giving snack vouchers to one, advising to one, and both snacks and advising to a third. This way, some students experience the interaction of snacks and advising and we can estimate the equation $Y = \alpha + \beta X + \gamma W + \eta XW$. If it is true that $X$ and $W$ interact, then estimating this equation will yield unbiased results for the effectiveness of snacks and advising both separately ($\beta$ and $\gamma$) and jointly ($\eta$).
+
+	\end{enumerate}
+
+	\item
+
+	\begin{enumerate}
+
+		\item
+
+		The random censoring assumption means that duration is independent of censoring, or that a student is equally likely to transfer out of Cal during each semester in their undergraduate career. This is not entirely credible -- perhaps students are more likely to transfer during their freshman year, and once they've made it a few semesters, they're less likely to transfer.
+
+		\item 
+
+		Estimate of the hazard: $\hat{\lambda}(y) = \text{\# dropping out}/\text{\# still at Cal}$. Kaplan-Meier estimate of the survival function $\hat{S}(y) = \prod \limits_{t=1}^y (1 - \hat{\lambda}(t))$. Estimate of the variance of the survival function $\mathbb{V}(\hat{S}(y)) = \hat{S}(y)^2 \sum \limits_{t=1}^{y} \frac{\hat{\lambda}(t)}{(1-\hat{\lambda}(t))N_t}$.
+
+		\item
+
+		Let $X_i$ be an indicator for whether an individual is a first-generation college student. We want to know the effect of $X$ on the hazard rate $\lambda$. To do this, we estimate a logit model
+
+		$$\log \left( \frac{\lambda(y|X=x)}{1 - \lambda(y|X=x)} \right) = \sum \limits_{t=1}^{T} \alpha_t \cdot 1(y=t) + \beta X$$
+
+		using maximum likelihood estimation with the log-likelihood function
+
+		$$\ln \mathcal{L} = \sum \limits_{i=1}^N \sum \limits_{y=1}^{Y_i} S_{iy} \ln \lambda(y|X_i) + \sum \limits_{i=1}^N \sum \limits_{y=1}^{Y_i} (1 - S_{iy}) \ln (1 - \lambda(y|X_i)).$$
+
+		In practice, we compute the logistic regression of $S_{it}$, an indicator for whether individual $i$ dropped out in period $t$, on time dummies $Z_{i1}, \ldots, Z_{iT}$ and $X_i$. We extract $\beta$, which is an estimate of the increase in log-odds of dropping out of Cal associated with being a first-generation college student.
+
+	\end{enumerate}
+
+\end{enumerate}
+
+\end{document}

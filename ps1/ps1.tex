@@ -1,0 +1,163 @@
+\documentclass{article}
+\usepackage{enumerate}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage[parfill]{parskip}
+
+\title{Econ C142 Problem Set 1}
+\author{Sahil Chinoy}
+\date{February 17, 2017}
+
+\begin{document}
+\maketitle{}
+
+\subsection*{Projections}
+
+\begin{enumerate}
+
+	\item Consider the inner product $\langle X,Y \rangle = \mathbb{E}[XY]$ defined on the $L_2$ space. We can write
+
+	\begin{equation*}
+	\rho = \frac{\mathbb{C}(XY)} {\sqrt{\mathbb{V}(X)} \sqrt{\mathbb{V}(Y)}} = \frac{\mathbb{E}[XY] - \mathbb{E}[X] \, \mathbb{E}[Y] } {\sqrt{\mathbb{E}[X^2] - \mathbb{E}[X]^2} \sqrt{\mathbb{E}[Y^2] - \mathbb{E}[Y]^2}}.
+	\end{equation*}
+
+	Since $\mathbb{E}[X] = \mathbb{E}[Y] = 0$
+
+	\begin{align*}
+	\rho &= \frac{\mathbb{E}[XY]} {\sqrt{\mathbb{E}[X^2]} \sqrt{\mathbb{E}[Y^2]}} \\
+	\rho^2 &= \frac{\mathbb{E}[XY]^2} {\mathbb{E}[X^2] \, \mathbb{E}[Y^2]}.
+	\end{align*}
+
+	From the Cauchy-Schwartz inequality, $\mathbb{E}[XY]^2 = | \langle X,Y \rangle |^2 \leq \langle X,X \rangle \cdot \langle Y,Y \rangle = \mathbb{E}[X^2] \, \mathbb{E}[Y^2]$. So
+
+	\begin{equation*}
+	\rho^2 \leq \frac{\mathbb{E}[X^2] \, \mathbb{E}[Y^2]} {\mathbb{E}[X^2] \, \mathbb{E}[Y^2]} = 1.
+	\end{equation*}
+
+	Since a squared real number is always nonnegative, this shows
+
+	\begin{equation*}
+	0 \leq \rho^2 \leq 1.
+	\end{equation*}
+
+	\item
+
+	Consider the $\mathbb{R}^2$ space with the inner product $\mathbf{a} \cdot \mathbf{b} = 2ab \cos(\theta)$, where $a = ||\mathbf{a}||$, $b = ||\mathbf{b}||$, and $\theta$ is the angle between $\mathbf{a}$ and $\mathbf{b}$.
+
+	Take the right triangle with legs formed by vectors $\mathbf{a}$ and $\mathbf{b}$, and hypotenuse $\mathbf{c}$. Then $\mathbf{c} = \mathbf{a} + \mathbf{b}$ and
+
+	\begin{equation*}
+	c^2 = \mathbf{c} \cdot \mathbf{c} = (\mathbf{a} + \mathbf{b}) \cdot (\mathbf{a} + \mathbf{b}) = || \mathbf{a} || ^2 + || \mathbf{b} || ^2 + 2 \mathbf{a} \cdot \mathbf{b} = a^2 + b^2 + 2ab \cos(\theta) = a^2 + b^2
+	\end{equation*}
+
+	since $\theta = \frac{\pi}{2}$.
+
+\end{enumerate}
+
+\subsection*{Production functions: Theory}
+
+\begin{enumerate}
+
+	\item
+
+	Take the objective function $F(k,l, \lambda) = rk + wl + \lambda[y - Ak^\alpha l^\beta]$. The first-order conditions for cost minimization imply
+
+	\begin{gather}
+	\frac{\partial F}{\partial k} = r - A \lambda \alpha k^{\alpha - 1}l^\beta = 0 \\
+	\frac{\partial F}{\partial l} = w - A \lambda \beta k^\alpha l^{\beta - 1} = 0 \\
+	\frac{\partial F}{\partial \lambda} = y - Ak^\alpha l^\beta = 0.
+	\end{gather}
+
+	Dividing (1) by (2)
+
+	\begin{gather*}
+	\frac{r}{w} = \frac{\alpha l}{\beta k} \\
+	l = \frac{r \beta}{w \alpha} k.
+	\end{gather*}
+
+	Substituting into (3)
+
+	\begin{gather*}
+	Ak^\alpha \left( \frac{r \beta}{w \alpha} k \right)^\beta = y \\
+	k^{\alpha + \beta} = \frac{y}{A} \left( \frac{w \alpha}{r \beta} \right)^\beta.
+	\end{gather*}
+
+	Defining $\eta = \alpha + \beta$
+
+	\begin{gather*}
+	k = \left( \frac{y}{A} \right)^{\frac{1}{\eta}} \left( \frac{w \alpha}{r \beta} \right)^{\frac{\beta}{\eta}} \\
+	k = \alpha \left( \frac{y}{A} \right)^{\frac{1}{\eta}} \left( \frac{w}{r} \right)^{\frac{\beta}{\eta}} [\alpha^\alpha \beta^\beta]^{- \frac{1}{\eta}}.
+	\end{gather*}
+
+	Symmetrically,
+
+	\begin{gather*}
+	l = \frac{r \beta}{w \alpha} k \\
+	l = \beta \left( \frac{y}{A} \right)^{\frac{1}{\eta}} \left( \frac{r}{w} \right)^{\frac{\alpha}{\eta}} [\alpha^\alpha \beta^\beta]^{- \frac{1}{\eta}}.
+	\end{gather*}
+
+	Note the following:
+
+	\begin{itemize}
+		\item Both $K$ and $L$ are increasing in $y$. The more output that must be produced, the greater the quantity of labor and capital demanded.
+
+		\item Both $K$ and $L$ are decreasing in $A$. The greater the firm efficiency, the less of both inputs necessary to produce a given quantity of output.
+
+		\item $K$ is increasing in $\alpha$ and $L$ is increasing in $\beta$. The greater the marginal productivity of an input, the more of that input demanded to produce a given quantity of output.
+
+		\item $K$ is decreasing in $\beta$ and $L$ is decreasing in $\alpha$. The greater the marginal productivity of an input, the less of the \textit{other} input demanded to produce a given quantity of output.
+
+		\item $K$ is decreasing in $r$ and $L$ is decreasing in $w$. The greater the price of an input, the less of that input demanded to produce a given quantity of output.
+
+		\item $K$ is increasing in $w$ and $L$ is increasing in $r$. The greater the price of an input, the more of the \textit{other} input demanded to produce a given quantity of output.
+
+	\end{itemize}
+
+	The returns-to-scale parameter is defined in the context of the production function. For $y = Ak^\alpha l^\beta$, if we multiply both inputs by $t$, then the output is multiplied by $t^\eta$, which is greater than $t$ if $\eta > 1$ and less than $t$ if $\eta < 1$. For this reason, firms with $\eta > 1$ are said to exhibit increasing returns to scale, and firms with $\eta < 1$ are said to exhibit decreasing returns to scale.
+
+	\item
+
+	With $c(y,r,w;A) = rK(y,r,w;A) + wL(y,r,w;A)$, we substitute the derived demand schedules
+
+	\begin{gather*}
+	c(y,r,w;A) = r \alpha \left( \frac{y}{A} \right)^{\frac{1}{\eta}} \left( \frac{w}{r} \right)^{\frac{\beta}{\eta}} [\alpha^\alpha \beta^\beta]^{-\frac{1}{\eta}} + w \beta \left( \frac{y}{A} \right)^{\frac{1}{\eta}} \left( \frac{r}{w} \right)^{\frac{\alpha}{\eta}} [\alpha^\alpha \beta^\beta]^{-\frac{1}{\eta}} \\
+	= \left( \frac{y}{A} \right)^{\frac{1}{\eta}} [\alpha^\alpha \beta^\beta]^{-\frac{1}{\eta}} (\alpha w^{\frac{\beta}{\eta}} r^{1 - \frac{\beta}{\eta}} + \beta r^{\frac{\alpha}{\eta}} w^{1 - \frac{\alpha}{\eta}}) \\
+	= \left( \frac{y}{A} \right)^{\frac{1}{\eta}} [\alpha^\alpha \beta^\beta]^{-\frac{1}{\eta}} r^{\frac{\alpha}{\eta}} w^{\frac{\beta}{\eta}} (\alpha + \beta) \\
+	= \eta \left( \frac{y}{A} \right)^{\frac{1}{\eta}} [\alpha^\alpha \beta^\beta]^{-\frac{1}{\eta}} r^{\frac{\alpha}{\eta}} w^{\frac{\beta}{\eta}}.
+	\end{gather*}
+
+	If we multiply the input prices $r$ and $w$ by $t$, the cost is also multiplied by $t$
+
+	\begin{gather*}
+	c(y,tr,tw;A) = \eta \left( \frac{y}{A} \right)^{\frac{1}{\eta}} [\alpha^\alpha \beta^\beta]^{-\frac{1}{\eta}} (tr)^{\frac{\alpha}{\eta}} (tw)^{\frac{\beta}{\eta}} \\
+	= t \cdot \eta \left( \frac{y}{A} \right)^{\frac{1}{\eta}} [\alpha^\alpha \beta^\beta]^{-\frac{1}{\eta}} r^{\frac{\alpha}{\eta}} w^{\frac{\beta}{\eta}} \\
+	= t \cdot c(y,r,w;A)
+	\end{gather*}
+
+	so the cost function is homogenous of degree one.
+
+	If only one input price increased -- say $r$ increased to $tr$ -- then the total cost would increase by $t^{\frac{\alpha}{\eta}} < t$. This corresponds to the effect described previously; if one input price increases, the firm will substitute away from that input. However, if \textit{both} input prices increase by the same amount, then the cost-minimizing mix of inputs will not change. If the bundle of inputs does not change and each input price is multiplied by $t$, then the firm will suffer the full price increase $t$.
+
+	The cost share of capital is
+
+	\begin{align*}
+	\frac{rK}{c} = \frac{r \alpha \left( \frac{y}{A} \right)^{\frac{1}{\eta}} \left( \frac{w}{r} \right)^{\frac{\beta}{\eta}} [\alpha^\alpha \beta^\beta]^{-\frac{1}{\eta}} }{ \eta \left( \frac{y}{A} \right)^{\frac{1}{\eta}} r^{\frac{\alpha}{\eta}} w^{\frac{\beta}{\eta}} [\alpha^\alpha \beta^\beta]^{-\frac{1}{\eta}} } = \frac{\alpha}{\eta} r^{1 - \frac{(\alpha + \beta)}{\eta}} = \frac{\alpha}{\eta} 
+	\end{align*}
+
+	and the cost share of labor is
+
+	\begin{align*}
+	\frac{wL}{c} = \frac{w \beta \left( \frac{y}{A} \right)^{\frac{1}{\eta}} \left( \frac{r}{w} \right)^{\frac{\alpha}{\eta}} [\alpha^\alpha \beta^\beta]^{-\frac{1}{\eta}} }{\eta \left( \frac{y}{A} \right)^{\frac{1}{\eta}} r^{\frac{\alpha}{\eta}} w^{\frac{\beta}{\eta}} [\alpha^\alpha \beta^\beta]^{-\frac{1}{\eta}} } = \frac{\beta}{\eta} w^{1 - \frac{(\alpha + \beta)}{\eta}} = \frac{\beta}{\eta}. 
+	\end{align*}
+
+	\item
+
+	In constructing the regression specification (7), we've dropped the $\frac{1}{\eta}( \ln A_i - \mathbb{E}[\ln A_i])$ term, which accounts for heterogeneity in firm productivity. Implicitly, we've absorbed this in the error term $U_i$. For the least-squares assumptions to be satisfied, then, we need $\mathbb{E}[U_i | \ln Y_i] = \mathbb{E}[U_i | \ln R_i - \ln W_i] = 0$, or that firm productivity is not related to output or to input prices.
+
+	This might be plausible for an industry in which firms do not choose their output level or have any control over the price of inputs. Electric utilities are a good example; the quantity of electricity that the companies must produce is set by independent regulators, and the input prices (wages, rents, fuel costs) are determined exogenously. The unobserved heterogeneity in firm productivity, then, is not related to output quantity or input prices, and the least-squares assumptions are satisfied. Then $c_0 = 1/\eta$ and $a_0 = \alpha/\eta$.
+
+	However, we can easily imagine an industry in which the productivity of firms is related to their output -- take, for example, car manufacturing. For given input prices, it might make sense for a more efficient firm to build more cars, which corresponds to an increase in output $Y_i$. Then the coefficient $c_0$ on $Y_i$ picks up the effects of both exogenous variations in quantity \textit{and} the effects of heterogeneity in firm productivity. It will thus be biased upwards, implying that our estimate for the returns-to-scale parameter $\eta$ is too small.
+
+\end{enumerate}
+
+\end{document}
